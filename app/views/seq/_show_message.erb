@@ -1,0 +1,46 @@
+<% if @record.valid?%>  
+    <% if @count>0 %>
+        <p>Все отрезки:</p>
+        <table border=1>
+            <tr>            
+                <td>
+                    №
+                </td> 
+                <td>
+                    отрезок 
+                </td>                   
+            </tr>
+            <% adder=0%>   
+            <% @all_seqs.each do |stroka| %>    
+                <tr>            
+                    <td>
+                        <%= adder+=1%>
+                    </td> 
+                    <td>
+                    <center> <%= stroka %>  </center> 
+                    </td>                   
+                </tr>
+            <% end %>
+        </table>
+
+        <p> Самый длинный отрезок:</p>
+        <div id='longest'>
+            <%= @longest %> 
+        </div>
+
+        <p> Количество отрезков:</p>
+        <div id='count'> <%= @count %> </div>
+        <br><br>
+
+    <% else %>
+    В последовательности нет совершенных чисел
+    <% end %>
+
+<% else %>
+ <h2>Ошибки ввода:</h2>
+  <ul>
+    <% @seq.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
