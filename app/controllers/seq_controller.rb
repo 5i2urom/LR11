@@ -7,13 +7,9 @@ class SeqController < ApplicationController
   def show
     @seq = params[:str].chomp.split(' ').map(&:to_i)
     @len = params[:num]
-    
     @record = Result.new(seq_params)
 
-    #if seq_exists? then get_data
-    if find_record
-        get_data
-        @record.save
+    if find_record then get_data
     else
         mas = perfect(@seq) # массив строк и число
         @all_seqs = mas[0]         

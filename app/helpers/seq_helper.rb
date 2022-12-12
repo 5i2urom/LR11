@@ -52,10 +52,11 @@ module SeqHelper
     end 
 
     def get_data
-      record=find_record
-      @all_seqs = record.result
-      @longest = record.longest
-      @count = record.count
+      this_record=find_record
+      @all_seqs = this_record.result      
+      @longest = this_record.longest
+      @count = this_record.count
+
     end
   
     def insert_data

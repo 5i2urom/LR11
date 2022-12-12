@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-class Result < ApplicationRecord
-    attr_accessor :num, :str    
+class Result < ApplicationRecord    
     validates :num, format: { with: /\A\d+\z/, message: 'should be a natural nubmer' }
-    validates :str, uniqueness: true,
+    validates :str, #uniqueness: true,
               format: { with: /\A-?\d+(\d+)?(\s-?\d+(\d+)?)*\s*\z/,
                         message: 'should be a sequence of numbers' }
     def length_valid?
