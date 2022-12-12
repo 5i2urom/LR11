@@ -10,15 +10,15 @@ class SeqController < ApplicationController
     
     @check_params = Result.new(seq_params)
 
-    # if false #seq_exists?
-    # else
+    #if seq_exists? then get_data
+    if find_record then get_data
+    else
         mas = perfect(@seq) # массив строк и число
-        @all_seqs = mas[0]
-        @count = mas[1]
+        @all_seqs = mas[0]        
         @longest = @all_seqs.max{|s1, s2| s1.split(' ').length <=> s2.split(' ').length}
-        @record = insert_data
-        
-    # end
+        @count = mas[1]
+        @record = insert_data        
+    end
   end
 
   def seq_params

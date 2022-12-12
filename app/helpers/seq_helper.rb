@@ -43,8 +43,19 @@ module SeqHelper
     end
     # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
   
-    def seq_exists?
-      Result.find_by(str: @seq).exists?
+    # def seq_exists?
+    #   Result.find_by(str: @seq).exists?
+    # end
+
+    def find_record
+      Result.find_by(str: @seq.join(' '))
+    end 
+
+    def get_data
+      record=find_record
+      @all_seqs = record.result
+      @longest = record.longest
+      @count = record.count
     end
   
     def insert_data
