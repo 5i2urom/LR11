@@ -20,6 +20,12 @@ class SeqController < ApplicationController
     end
   end
 
+  def show_all
+    respond_to do |format|
+      format.xml { render xml: Result.all }
+    end
+  end
+
   def seq_params
     params.permit(:num, :str)
   end

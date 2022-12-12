@@ -23,4 +23,7 @@
         </tr>
     </table>  
 <% end %>
+<%= form_with url: '/show_all.xml', data: {turbo: false} do |form| %>
+    <%= form.submit("База данных", id: 'db_submit') %> 
+<% end %>
 <div id='show-container'></div>

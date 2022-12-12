@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Result < ApplicationRecord
+  include ActiveModel::Serializers::Xml
   validates :num, :str, presence: { message: ' не может быть пустым' }
   validates :num, format: { with: /\A\d+\z/, message: 'должно быть натуральным числом' }
   validates :str, # uniqueness: true,
