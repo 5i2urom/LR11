@@ -5,16 +5,18 @@ class SeqController < ApplicationController
   end
 
   def show
-    @seq = params[:str_input].chomp.split(' ').map(&:to_i)
-    @len = params[:num_input]
+    @seq = params[:str].chomp.split(' ').map(&:to_i)
+    @len = params[:num]
     
-    @check_params = Result.new(seq_params)
+    @record = Result.new(seq_params)
 
     #if seq_exists? then get_data
-    if find_record then get_data
+    if find_record
+        get_data
+        @record.save
     else
         mas = perfect(@seq) # массив строк и число
-        @all_seqs = mas[0]        
+        @all_seqs = mas[0]         
         @longest = @all_seqs.max{|s1, s2| s1.split(' ').length <=> s2.split(' ').length}
         @count = mas[1]
         @record = insert_data        
