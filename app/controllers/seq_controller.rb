@@ -17,6 +17,7 @@ class SeqController < ApplicationController
         @count = mas[1]
         @longest = @all_seqs.max{|s1, s2| s1.split(' ').length <=> s2.split(' ').length}
         @record = insert_data
+        
     # end
   end
 

@@ -48,7 +48,7 @@ module SeqHelper
     end
   
     def insert_data
-      Result.create!(
+      Result.create(
         num: @len,
         str: @seq.join(' '),
         result: @all_seqs,

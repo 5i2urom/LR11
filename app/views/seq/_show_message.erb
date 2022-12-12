@@ -39,7 +39,7 @@
 <% else %>
  <h2>Ошибки ввода:</h2>
   <ul>
-    <% @seq.errors.each do |error| %>
+    <% @record.errors.each do |error| %>
       <li><%= error.full_message %></li>
     <% end %>
   </ul>
