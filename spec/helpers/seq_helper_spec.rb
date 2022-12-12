@@ -2,16 +2,12 @@
 
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the SeqHelper. For example:
-#
-# describe SeqHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe SeqHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'returns different results' do
+    my_seq1 = [2, 3, 4, 6, 6, 6, 496, 5, 28, 28, 496, 3, 496]
+    expect(helper.perfect(my_seq1)).to eq([['6 6 6 496', '28 28 496', '496'], 3])
+
+    my_seq2 = [1, 1, 1, 5, 496]
+    expect(helper.perfect(my_seq2)).to eq([['496'], 1])
+  end
 end
