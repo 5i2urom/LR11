@@ -18,6 +18,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'pg', '~> 1.1'
 
 gem 'rspec-rails', '>= 3.9.0'
+gem 'rails-controller-testing'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
