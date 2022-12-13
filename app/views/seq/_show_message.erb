@@ -1,4 +1,4 @@
-<% if @record.valid?%>  
+<% if @record.valid? or @record.errors.added? :str, 'has already been taken' %>  
     <% if @record.count>0 %>
         <p>Все отрезки:</p>
         <table border=1>

@@ -7,12 +7,10 @@ class SeqController < ApplicationController
 
   def input; end
 
-  # rubocop:disable Metrics/AbcSize
-  def show    
+  def show
     @record = Result.new(seq_params)
     find_record ? get_data : @record.save
   end
-  # rubocop:enable Metrics/AbcSize
 
   def show_all
     respond_to do |format|

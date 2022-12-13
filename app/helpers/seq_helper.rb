@@ -46,5 +46,5 @@ module SeqHelper
     @record.result = this_record.result
     @record.longest = this_record.longest
     @record.count = this_record.count
-  end  
+  end
 end
