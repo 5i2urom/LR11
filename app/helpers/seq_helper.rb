@@ -2,16 +2,13 @@
 
 # operates with a sequence
 module SeqHelper
-  def seq
-    params[:str].chomp.split(' ').map(&:to_i)
-  end
+  def seq = params[:str]#.chomp.split(' ').map(&:to_i)
 
-  def len
-    params[:num]
-  end
+  def len = params[:num]
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
-  def perfect(seq)
+  def perfect(seq_str)
+    seq = seq_str.chomp.split(' ').map(&:to_i)
     count = 0
     all_seqs = []
     curr_seq = []
@@ -43,9 +40,7 @@ module SeqHelper
   end
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
-  def find_record
-    Result.find_by(str: seq.join(' '))
-  end
+  def find_record = Result.find_by(str: seq)
 
   def get_data
     this_record = find_record
@@ -57,10 +52,22 @@ module SeqHelper
   def insert_data
     Result.create(
       num: len,
-      str: seq.join(' '),
+      str: seq,
       result: @all_seqs,
       longest: @longest,
       count: @count
     )
   end
+
+  # def mas = perfect(seq)
+
+  # def result = mas[0]
+  # def longest = result.max { |s1, s2| s1.split(' ').length <=> s2.split(' ').length }
+  # def count = mas[1]
+
+  def result
+    perfect(self.str)[0]
+  end
+
+  def count_fill = perfect(self.str)[1]
 end

@@ -13,8 +13,8 @@ class SeqController < ApplicationController
     if find_record then get_data
     else
       mas = perfect(seq) # массив строк и число
-      @all_seqs = mas[0]
-      @longest = @all_seqs.max { |s1, s2| s1.split(' ').length <=> s2.split(' ').length }
+      @result = mas[0]
+      @longest = @result.max { |s1, s2| s1.split(' ').length <=> s2.split(' ').length }
       @count = mas[1]
       @record = insert_data
     end
