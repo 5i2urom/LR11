@@ -1,5 +1,5 @@
 <% if @record.valid?%>  
-    <% if @count>0 %>
+    <% if @record.count>0 %>
         <p>Все отрезки:</p>
         <table border=1>
             <tr>            
@@ -11,7 +11,7 @@
                 </td>                   
             </tr>
             <% adder=0%>   
-            <% @result.each do |stroka| %>    
+            <% @record.result.each do |stroka| %>    
                 <tr>            
                     <td>
                         <%= adder+=1%>
@@ -25,11 +25,11 @@
 
         <p> Самый длинный отрезок:</p>
         <div id='longest'>
-            <%= @longest %> 
+            <%= @record.longest %> 
         </div>
 
         <p> Количество отрезков:</p>
-        <div id='count'> <%= @count %> </div>
+        <div id='count'> <%= @record.count %> </div>
         <br><br>
 
     <% else %>

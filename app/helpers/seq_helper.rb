@@ -2,8 +2,7 @@
 
 # operates with a sequence
 module SeqHelper
-  def seq = params[:str]#.chomp.split(' ').map(&:to_i)
-
+  def seq = params[:str]
   def len = params[:num]
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
@@ -44,30 +43,8 @@ module SeqHelper
 
   def get_data
     this_record = find_record
-    @all_seqs = this_record.result
-    @longest = this_record.longest
-    @count = this_record.count
-  end
-
-  def insert_data
-    Result.create(
-      num: len,
-      str: seq,
-      result: @all_seqs,
-      longest: @longest,
-      count: @count
-    )
-  end
-
-  # def mas = perfect(seq)
-
-  # def result = mas[0]
-  # def longest = result.max { |s1, s2| s1.split(' ').length <=> s2.split(' ').length }
-  # def count = mas[1]
-
-  def result
-    perfect(self.str)[0]
-  end
-
-  def count_fill = perfect(self.str)[1]
+    @record.result = this_record.result
+    @record.longest = this_record.longest
+    @record.count = this_record.count
+  end  
 end

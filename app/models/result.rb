@@ -14,9 +14,12 @@ class Result < ApplicationRecord
 
   validate :length_valid?
 
-  before_save :count_fill
+  before_save :fill_others
 
-  def count_fill
-    self.count = perfect(self.str)[1]
-  end 
+  def fill_others
+    mas=perfect(str)
+    self.result = mas[0] 
+    self.count = mas[1]
+    self.longest = self.result.max { |s1, s2| s1.split(' ').length <=> s2.split(' ').length }
+  end
 end

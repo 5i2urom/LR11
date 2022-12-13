@@ -1,24 +1,18 @@
 # frozen_string_literal: true
 
+# the controller
+
 class SeqController < ApplicationController
   include SeqHelper
 
   def input; end
 
-  def show
-    # @seq = params[:str].chomp.split(' ').map(&:to_i)
-    # @len = params[:num]
+  # rubocop:disable Metrics/AbcSize
+  def show    
     @record = Result.new(seq_params)
-
-    if find_record then get_data
-    else
-      mas = perfect(seq) # массив строк и число
-      @result = mas[0]
-      @longest = @result.max { |s1, s2| s1.split(' ').length <=> s2.split(' ').length }
-      @count = mas[1]
-      @record = insert_data
-    end
+    find_record ? get_data : @record.save
   end
+  # rubocop:enable Metrics/AbcSize
 
   def show_all
     respond_to do |format|
