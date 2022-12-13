@@ -2,13 +2,13 @@
 
 # operates with a sequence
 module SeqHelper
-  # def seq
-  #   params[:str_input].chomp.split(' ').map(&:to_i)
-  # end
+  def seq
+    params[:str].chomp.split(' ').map(&:to_i)
+  end
 
-  # def len
-  #   params[:num_input]
-  # end
+  def len
+    params[:num]
+  end
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def perfect(seq)
@@ -44,7 +44,7 @@ module SeqHelper
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   def find_record
-    Result.find_by(str: @seq.join(' '))
+    Result.find_by(str: seq.join(' '))
   end
 
   def get_data
@@ -56,8 +56,8 @@ module SeqHelper
 
   def insert_data
     Result.create(
-      num: @len,
-      str: @seq.join(' '),
+      num: len,
+      str: seq.join(' '),
       result: @all_seqs,
       longest: @longest,
       count: @count
