@@ -17,9 +17,9 @@ gem 'sqlite3', '~> 1.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
-gem 'rspec-rails', '>= 3.9.0'
-gem 'rails-controller-testing'
 gem 'activemodel-serializers-xml'
+gem 'rails-controller-testing'
+gem 'rspec-rails', '>= 3.9.0'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
