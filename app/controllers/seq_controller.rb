@@ -18,6 +18,8 @@ class SeqController < ApplicationController
     end
   end
 
+  private
+
   def seq_params
     params.permit(:num, :str)
   end
